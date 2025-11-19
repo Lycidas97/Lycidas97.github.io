@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>交易冷静检查单 (移动端适配版)</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --success-color: #27ae60;
+            --warning-color: #e67e22;
+            --danger-color: #c0392b;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --group-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            padding: 25px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .section-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        .form-group { margin-bottom: 20px; }
+
+        .sub-group {
+            background-color: var(--group-bg);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #eaeaea;
+        }
+
+        .sub-label {
+            font-size: 0.95em;
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .radio-group label {
+            font-weight: normal;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            transition: all 0.2s;
+            font-size: 0.95em;
+        }
+        
+        .radio-group label:hover {
+            border-color: var(--accent-color);
+            background-color: #f0f8ff;
+        }
+        
+        /* Checked state styling simulation */
+        input[type="radio"]:checked + span { /* Requires span wrapping text if used, keeping simple for now */ }
+
+        input[type="text"], input[type="number"], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px; /* Prevent iOS zoom */
+            box-sizing: border-box;
+            transition: border 0.2s;
+            appearance: none; /* Remove native shadow */
+        }
+        
+        input:focus, textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+        }
+
+        input[type="number"] {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+
+        /* Grid for calculations - Responsive Class */
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            background: #eef2f7;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        /* Two Column Grid for Inputs - Responsive Class */
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .highlight-green { color: var(--success-color); }
+        .highlight-red { color: var(--danger-color); }
+
+        textarea {
+            height: 80px;
+            resize: vertical;
+        }
+
+        /* Checkbox list */
+        .checkbox-list label {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            cursor: pointer;
+            padding: 5px;
+            line-height: 1.4;
+        }
+        
+        .checkbox-list input {
+            margin-top: 3px;
+            margin-right: 10px;
+            transform: scale(1.2);
+            flex-shrink: 0; /* Prevent checkbox from shrinking */
+        }
+
+        /* Timer Button */
+        #timer-btn {
+            background-color: var(--warning-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            margin: 20px 0;
+            transition: all 0.3s;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(230, 126, 34, 0.3);
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        #timer-btn:hover {
+            background-color: #d35400;
+        }
+
+        #timer-btn.completed {
+            background-color: var(--success-color);
+            box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3);
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            flex: 1; /* Even width on mobile */
+        }
+
+        .btn-execute { background-color: var(--success-color); color: white; }
+        .btn-cancel { background-color: #95a5a6; color: white; }
+
+        .alert {
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 0.95em;
+            display: none;
+            font-weight: bold;
+        }
+        .alert-danger {
+            background-color: #fadbd8;
+            color: #c0392b;
+            border: 1px solid #f5b7b1;
+        }
+
+        .sub-item { margin-bottom: 15px; }
+        .sub-item-title { font-size: 0.9em; color: #888; margin-bottom: 5px; display: block; }
+
+        /* Plan Card Style */
+        .plan-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+        .plan-label {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .plan-result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        
+        .result-label { font-size: 0.85em; color: #666; margin-bottom: 5px; }
+        .result-value { font-size: 1.2em; font-weight: bold; color: var(--primary-color); }
+
+        /* Soul Question Styles */
+        .soul-question {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        .soul-question-text { margin-bottom: 10px; font-weight: 600; color: #2c3e50; }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .container { padding: 20px 15px; border-radius: 8px; }
+            h1 { font-size: 1.5em; margin-bottom: 20px; }
+            
+            .section { padding: 15px; margin-bottom: 20px; }
+            .section-title { font-size: 1.1em; margin-bottom: 15px; }
+
+            /* Collapse Grids to Single Column */
+            .calc-grid, .two-col-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px;
+            }
+
+            /* Action buttons stack vertically */
+            .action-buttons { flex-direction: column; gap: 10px; margin-top: 30px; }
+            .btn { width: 100%; padding: 12px; }
+            
+            /* Radio buttons take full width for easier tapping */
+            .radio-group label {
+                flex: 1 1 auto; /* Grow to fill space */
+                justify-content: center;
+                padding: 10px;
+            }
+            
+            /* Adjust text areas */
+            textarea { height: 100px; }
+        }
+
+        @media print {
+            .action-buttons, #timer-btn { display: none; }
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; max-width: 100%; border: none; }
+            .section { page-break-inside: avoid; box-shadow: none; border: 1px solid #000; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>交易冷静检查单</h1>
+    <p style="text-align: center; color: #666; margin-top: -15px; margin-bottom: 25px; font-style: italic; font-size: 0.9em;">"无检查，不交易。逻辑先行，情绪靠后。"</p>
+
+    <div class="section">
+        <div class="section-title">第一部分：大局观 - 我在什么样的市场中？</div>
+        
+        <div class="sub-group">
+            <span class="sub-label">1. 大盘环境</span>
+            
+            <div class="sub-item">
+                <span class="sub-item-title">趋势：</span>
+                <div class="radio-group">
+                    <label><input type="radio" name="trend"> 多头</label>
+                    <label><input type="radio" name="trend"> 空头</label>
+                    <label><input type="radio" name="trend"> 震荡</label>
+                </div>
+            </div>
+
+            <div class="sub-item">
+                <span class="sub-item-title">量能：</span>
+                <div class="radio-group">
+                    <label><input type="radio" name="vol"> 放量</label>
+                    <label><input type="radio" name="vol"> 缩量</label>
+                    <label><input type="radio" name="vol"> 平量</label>
+                </div>
+            </div>
+
+            <div class="sub-item">
+                <span class="sub-item-title">结论：</span>
+                <div class="radio-group">
+                    <label><input type="radio" name="env_ok"> 适合开新仓</label>
+                    <label><input type="radio" name="env_ok"> 不适合</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-group">
+            <span class="sub-label">2. 市场情绪</span>
+            <div class="radio-group">
+                <label><input type="radio" name="emotion"> 狂热 (高位风险)</label>
+                <label><input type="radio" name="emotion"> 恐慌 (低位机会)</label>
+                <label><input type="radio" name="emotion"> 温和</label>
+            </div>
+            <div style="margin-top: 15px; border-top: 1px dashed #ccc; padding-top: 10px;">
+                <span style="font-size:0.9em; color:#888; display: block; margin-bottom: 5px;">我的感受 (诚实面对)：</span>
+                <div class="radio-group">
+                    <label><input type="radio" name="self_feel"> 贪婪</label>
+                    <label><input type="radio" name="self_feel"> 恐惧</label>
+                    <label><input type="radio" name="self_feel"> 平静</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-group" style="background-color: #e8f6f3;">
+            <span class="sub-label" style="color: #16a085;">3. 仓位风控计算器</span>
+            <div class="calc-grid">
+                <div>
+                    <div class="result-label">当前总仓位 (%)</div>
+                    <input type="number" id="currPos" placeholder="0" oninput="calcPosition()">
+                </div>
+                <div>
+                    <div class="result-label">本次计划买入 (%)</div>
+                    <input type="number" id="planPos" placeholder="0" oninput="calcPosition()">
+                </div>
+                <div>
+                    <div class="result-label">买入后总仓位</div>
+                    <div class="result-value" id="finalPos">0%</div>
+                </div>
+                <div>
+                    <div class="result-label">仓位硬性上限 (%)</div>
+                    <input type="number" id="limitPos" value="80" oninput="calcPosition()">
+                </div>
+            </div>
+            <div id="posAlert" class="alert alert-danger">警告：买入后将超过您的硬性仓位上限！请减少买入量。</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">第二部分：方向感 - 赛道是否正确？</div>
+        
+        <div class="form-group">
+            <label>4. 板块定位与强度</label>
+            <input type="text" placeholder="板块名称" style="margin-bottom: 15px; font-weight: bold;">
+            
+            <div class="sub-group">
+                <span class="sub-label">生命周期：</span>
+                <div class="radio-group">
+                    <label><input type="radio" name="cycle"> 启动</label>
+                    <label><input type="radio" name="cycle"> 主升</label>
+                    <label><input type="radio" name="cycle"> 高潮/分化</label>
+                    <label><input type="radio" name="cycle"> 退潮</label>
+                    <label><input type="radio" name="cycle"> 沉寂</label>
+                </div>
+            </div>
+
+            <div class="sub-group">
+                <span class="sub-label">市场地位：</span>
+                <div class="radio-group">
+                    <label><input type="radio" name="status"> 绝对主线</label>
+                    <label><input type="radio" name="status"> 次级主线</label>
+                    <label><input type="radio" name="status"> 分支/衍生</label>
+                    <label><input type="radio" name="status"> 独立</label>
+                </div>
+            </div>
+
+            <div class="sub-group">
+                <span class="sub-label">龙头股表现：</span>
+                <div class="radio-group">
+                    <label><input type="radio" name="leader"> 强势领涨</label>
+                    <label><input type="radio" name="leader"> 高位震荡</label>
+                    <label><input type="radio" name="leader"> 明显走弱</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>5. 板块逻辑与健康度</label>
+            <textarea placeholder="核心驱动逻辑（一句话简述）..." style="margin-bottom: 15px;"></textarea>
+            
+            <div class="calc-grid" style="background: #fff; padding: 0; gap: 10px;">
+                <div class="sub-group" style="margin-bottom: 0;">
+                    <span class="sub-label">逻辑强度：</span>
+                    <div class="radio-group">
+                        <label><input type="radio" name="logic_str"> 新且强</label>
+                        <label><input type="radio" name="logic_str"> 旧但强</label>
+                        <label><input type="radio" name="logic_str"> 新但弱</label>
+                        <label><input type="radio" name="logic_str"> 旧且弱</label>
+                    </div>
+                </div>
+                <div class="sub-group" style="margin-bottom: 0;">
+                    <span class="sub-label">内部结构：</span>
+                    <div class="radio-group">
+                        <label><input type="radio" name="struct"> 良好 (梯队完整)</label>
+                        <label><input type="radio" name="struct"> 一般 (龙头独大)</label>
+                        <label><input type="radio" name="struct"> 差 (内部分化)</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">第三部分：狙击点 - 具体的交易计划</div>
+        
+        <div class="form-group">
+            <div class="two-col-grid">
+                <div>
+                    <label>6. 交易标的 (代码)</label>
+                    <input type="text" placeholder="例如：600XXX" style="font-weight: bold;">
+                </div>
+                <div>
+                    <label>计划买入价格 (元)</label>
+                    <input type="number" id="buyPrice" step="0.01" placeholder="0.00" oninput="calcTrade()" style="border-color: var(--accent-color);">
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-group">
+            <span class="sub-label">7. 买入理由 (必须具体，可多选)</span>
+            <div class="checkbox-list">
+                <label><input type="checkbox"> 技术面 (如：放量突破平台、回踩关键支撑)</label>
+                <label><input type="checkbox"> 基本面 (如：业绩超预期、估值低位)</label>
+                <label><input type="checkbox"> 消息面 (如：新订单、政策利好)</label>
+                <label><input type="checkbox"> 板块效应 (如：龙头带动、板块轮动至此)</label>
+            </div>
+        </div>
+
+        <div class="sub-group" style="background-color: #fff8e1; border-color: #ffe082;">
+            <span class="sub-label" style="color: #f39c12;">8. 交易计划 (自动计算)</span>
+            
+            <div class="two-col-grid" style="margin-bottom: 20px;">
+                
+                <div class="plan-card" style="border-left: 4px solid #27ae60;">
+                    <label class="plan-label">🎯 目标止盈价</label>
+                    <input type="number" id="targetPrice" step="0.01" placeholder="0.00" oninput="calcTrade()" style="font-size: 1.1em; font-weight: bold;">
+                    <div class="plan-result-row">
+                        <span style="color: #7f8c8d;">预期收益率:</span>
+                        <span id="profitRate" class="highlight-green" style="font-weight: bold; font-size: 1.2em;">0.00%</span>
+                    </div>
+                </div>
+
+                <div class="plan-card" style="border-left: 4px solid #c0392b;">
+                    <label class="plan-label">🛡️ 止损价位</label>
+                    <input type="number" id="stopPrice" step="0.01" placeholder="0.00" oninput="calcTrade()" style="font-size: 1.1em; font-weight: bold;">
+                    <div class="plan-result-row">
+                        <span style="color: #7f8c8d;">最大亏损率:</span>
+                        <span id="lossRate" class="highlight-red" style="font-weight: bold; font-size: 1.2em;">0.00%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.5); padding: 15px; border-radius: 8px; text-align: center; border: 1px dashed #f39c12; margin-top: 10px;">
+                <div style="font-size: 0.9em; color: #666; margin-bottom: 5px;">⚖️ 风险回报比 (R/R Ratio)</div>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+                    <span id="rrRatio" style="font-size: 1.8em; font-weight: bold; color: #2c3e50;">-</span>
+                </div>
+                <div style="font-size: 0.8em; color: #7f8c8d; margin-top: 5px;">核心原则：盈亏比需 ≥ 1:1.5</div>
+            </div>
+            
+            <div id="rrAlert" class="alert alert-danger" style="text-align: center;">警告：风险回报比低于 1:1.5，这是一笔不划算的交易！请重新考虑。</div>
+        </div>
+        
+        <div class="form-group">
+            <label>持股周期：</label>
+            <div class="radio-group">
+                <label><input type="radio" name="period"> 超短 (1-3天)</label>
+                <label><input type="radio" name="period"> 短线 (1-2周)</label>
+                <label><input type="radio" name="period"> 波段/中长线</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">第四部分：最终确认 - 这里的诚实价值千金</div>
+        
+        <div class="sub-group" style="background: #fff; border: 2px solid #34495e;">
+            <span class="sub-label">9. 灵魂拷问 (必须直面)</span>
+            
+            <div class="soul-question">
+                <div class="soul-question-text">a. 如果现在空仓，我还会买它吗？</div>
+                <div class="radio-group">
+                    <label><input type="radio" name="soul_a" value="yes" onclick="checkSoul()"> 会 (坚决买入)</label>
+                    <label><input type="radio" name="soul_a" value="no" onclick="checkSoul()"> 不会 (只是补仓)</label>
+                </div>
+            </div>
+
+            <div class="soul-question">
+                <div class="soul-question-text">b. 如果明天大盘大跌，我能执行止损吗？</div>
+                <div class="radio-group">
+                    <label><input type="radio" name="soul_b" value="yes" onclick="checkSoul()"> 能 (已想好退路)</label>
+                    <label><input type="radio" name="soul_b" value="no" onclick="checkSoul()"> 不能 (会死扛)</label>
+                </div>
+            </div>
+
+            <div class="soul-question">
+                <div class="soul-question-text">c. 这笔交易是遵循计划还是冲动？</div>
+                <div class="radio-group">
+                    <label><input type="radio" name="soul_c" value="plan" onclick="checkSoul()"> 遵循计划</label>
+                    <label><input type="radio" name="soul_c" value="impulse" onclick="checkSoul()"> 手痒/冲动</label>
+                </div>
+            </div>
+
+            <div id="soulAlert" class="alert alert-danger">🛑 警报：灵魂拷问未通过！交易逻辑存在致命缺陷，请立即终止操作！</div>
+        </div>
+
+        <div class="form-group" style="text-align: center;">
+            <label>10. 强制冷静 (30秒)</label>
+            <button id="timer-btn" onclick="startTimer()">点击开始冷静 (30s)</button>
+            <p style="font-size: 0.8em; color: #999; margin-top: 5px;">请起身，深呼吸，再看一遍你的答案。</p>
+        </div>
+        
+        <div class="form-group checkbox-list" style="background: #eafaf1; padding: 15px; border: 1px solid #27ae60; border-radius: 6px;">
+            <label style="font-weight: bold; color: #27ae60;"><input type="checkbox" id="finalCheck"> 我已全面、诚实地完成了以上所有评估。</label>
+            <label style="font-weight: bold; color: #27ae60;"><input type="checkbox"> 我理解并接受此交易的一切可能结果。</label>
+            <label style="font-weight: bold; color: #27ae60;"><input type="checkbox"> 我的决策基于逻辑和计划，而非情绪。</label>
+        </div>
+    </div>
+
+    <div class="action-buttons">
+        <button class="btn btn-execute" onclick="window.print()">执行交易 (存档)</button>
+        <button class="btn btn-cancel" onclick="alert('交易取消。控制回撤就是最好的进攻！');location.reload();">取消交易</button>
+    </div>
+
+</div>
+
+<script>
+    // 灵魂拷问检查逻辑
+    function checkSoul() {
+        const alertBox = document.getElementById('soulAlert');
+        
+        // 获取所有选中的值
+        const a = document.querySelector('input[name="soul_a"]:checked')?.value;
+        const b = document.querySelector('input[name="soul_b"]:checked')?.value;
+        const c = document.querySelector('input[name="soul_c"]:checked')?.value;
+
+        // 只要有一个选了否定选项，就报警
+        if (a === 'no' || b === 'no' || c === 'impulse') {
+            alertBox.style.display = 'block';
+        } else {
+            alertBox.style.display = 'none';
+        }
+    }
+
+    // 仓位计算逻辑
+    function calcPosition() {
+        const curr = parseFloat(document.getElementById('currPos').value) || 0;
+        const plan = parseFloat(document.getElementById('planPos').value) || 0;
+        const limit = parseFloat(document.getElementById('limitPos').value) || 100;
+
+        const total = curr + plan;
+        const el = document.getElementById('finalPos');
+        el.innerText = total.toFixed(1) + "%";
+
+        const alertBox = document.getElementById('posAlert');
+        if (total > limit) {
+            el.classList.add('highlight-red');
+            alertBox.style.display = 'block';
+        } else {
+            el.classList.remove('highlight-red');
+            alertBox.style.display = 'none';
+        }
+    }
+
+    // 交易盈亏比计算逻辑
+    function calcTrade() {
+        const buy = parseFloat(document.getElementById('buyPrice').value);
+        const target = parseFloat(document.getElementById('targetPrice').value);
+        const stop = parseFloat(document.getElementById('stopPrice').value);
+
+        // Reset
+        document.getElementById('profitRate').innerText = "0.00%";
+        document.getElementById('lossRate').innerText = "0.00%";
+        document.getElementById('rrRatio').innerText = "-";
+        document.getElementById('rrAlert').style.display = 'none';
+
+        if (!buy) return;
+
+        // Calculate Profit %
+        if (target) {
+            const profitPct = ((target - buy) / buy) * 100;
+            document.getElementById('profitRate').innerText = profitPct.toFixed(2) + "%";
+        }
+
+        // Calculate Loss %
+        if (stop) {
+            const lossPct = ((buy - stop) / buy) * 100;
+            document.getElementById('lossRate').innerText = "-" + lossPct.toFixed(2) + "%";
+        }
+
+        // Calculate Ratio
+        if (target && stop) {
+            const potentialProfit = target - buy;
+            const potentialLoss = buy - stop;
+
+            if (potentialLoss > 0) {
+                const ratio = potentialProfit / potentialLoss;
+                const ratioEl = document.getElementById('rrRatio');
+                ratioEl.innerText = "1 : " + ratio.toFixed(2);
+
+                if (ratio < 1.5) {
+                    ratioEl.classList.add('highlight-red');
+                    ratioEl.classList.remove('highlight-green');
+                    document.getElementById('rrAlert').style.display = 'block';
+                } else {
+                    ratioEl.classList.add('highlight-green');
+                    ratioEl.classList.remove('highlight-red');
+                    document.getElementById('rrAlert').style.display = 'none';
+                }
+            }
+        }
+    }
+
+    // 倒计时逻辑
+    let timerInterval;
+    function startTimer() {
+        const btn = document.getElementById('timer-btn');
+        if(btn.classList.contains('completed')) return;
+        
+        btn.disabled = true;
+        let timeLeft = 30;
+        
+        btn.innerText = `请深呼吸... 剩余 ${timeLeft} 秒`;
+        btn.style.backgroundColor = "#95a5a6";
+        btn.style.transform = "none";
+
+        timerInterval = setInterval(() => {
+            timeLeft--;
+            btn.innerText = `请深呼吸... 剩余 ${timeLeft} 秒`;
+            
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                btn.innerText = "冷静期结束，您可以做决定了";
+                btn.disabled = false;
+                btn.classList.add('completed');
+                btn.style.backgroundColor = "#27ae60";
+            }
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
