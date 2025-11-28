@@ -62,7 +62,7 @@
         }
         .price { font-size: 16px; font-weight: bold; color: #ff3b30; font-family: "DIN Alternate", Arial, sans-serif; }
 
-        /* --- 2. 标签行 (可横向滚动) --- */
+        /* --- 2. 标签行 --- */
         .info-row { 
             display: flex; 
             flex-wrap: wrap; 
@@ -71,12 +71,25 @@
             align-items: center;
         }
         .sector-bar { 
-            display: inline-flex; align-items: center; 
-            background: #fff3e0; border: 1px solid #ffe0b2; 
-            border-radius: 4px; padding: 3px 6px; 
+            display: inline-flex; 
+            align-items: center; 
+            background: #fff3e0; 
+            border: 1px solid #ffe0b2; 
+            border-radius: 4px; 
+            padding: 2px 6px; 
+            margin-left: 8px; /* ★★★ 增加左边距，与连板标隔开 */
         }
-        .sector-name { color: #e65100; font-weight: bold; font-size: 12px; margin-right: 6px; }
-        .sector-count { color: #f57c00; font-size: 11px; }
+        .sector-name { 
+            color: #e65100; 
+            font-weight: bold; 
+            font-size: 14px; /* ★★★ 字号加大 (原12px) */
+            margin-right: 4px; 
+        }
+        .sector-count { 
+            color: #f57c00; 
+            font-size: 12px; /* ★★★ 字号加大 (原11px) */
+            font-weight: bold;
+        }
 
         .tag { 
             background: #f0f9ff; color: #007aff; 
@@ -140,15 +153,20 @@
     
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">航天发展</span><span class="board-badge">11天7板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">航天发展</span>
+                    <span class="board-badge">11天7板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">航天</span>
+            <span class="sector-count">涨停12家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：13.51</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">航天</span>
-                    <span class="sector-count">涨停12家</span>
-                </div>
                 <span class="tag">商业航天</span><span class="tag">孙公司增资扩股</span><span class="tag">央企</span><span class="tag">海峡两岸</span>
             </div>
 
@@ -172,15 +190,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">雷科防务</span><span class="board-badge">5天4板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">雷科防务</span>
+                    <span class="board-badge">5天4板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">航天</span>
+            <span class="sector-count">涨停12家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：7.66</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">航天</span>
-                    <span class="sector-count">涨停12家</span>
-                </div>
                 <span class="tag">商业航天</span><span class="tag">毫米波雷达</span><span class="tag">存储芯片收购尧云</span>
             </div>
 
@@ -204,15 +227,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">通宇通讯</span><span class="board-badge">2连板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">通宇通讯</span>
+                    <span class="board-badge">2连板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">航天</span>
+            <span class="sector-count">涨停12家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：23.78</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">航天</span>
-                    <span class="sector-count">涨停12家</span>
-                </div>
                 <span class="tag">投资凌空天行</span><span class="tag">商业航天</span><span class="tag">卫星通信</span><span class="tag">射频器件</span>
             </div>
 
@@ -236,15 +264,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">四川金顶</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">四川金顶</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">航天</span>
+            <span class="sector-count">涨停12家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：11.1</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">航天</span>
-                    <span class="sector-count">涨停12家</span>
-                </div>
                 <span class="tag">石灰石</span><span class="tag">商业航天</span><span class="tag">人形机器人</span><span class="tag">黄金</span><span class="tag">国企改革</span>
             </div>
 
@@ -268,15 +301,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">顺灏股份</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">顺灏股份</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">航天</span>
+            <span class="sector-count">涨停12家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：8.03</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">航天</span>
-                    <span class="sector-count">涨停12家</span>
-                </div>
                 <span class="tag">商业航天</span><span class="tag">太空数据中心</span><span class="tag">工业大麻</span><span class="tag">环保纸</span>
             </div>
 
@@ -300,15 +338,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">乾照光电</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">乾照光电</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">航天</span>
+            <span class="sector-count">涨停12家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：19.07</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">航天</span>
-                    <span class="sector-count">涨停12家</span>
-                </div>
                 <span class="tag">商业航天</span><span class="tag">砷化镓电池</span><span class="tag">三季报增长</span><span class="tag">CPO</span>
             </div>
 
@@ -332,15 +375,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">普天科技</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">普天科技</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">航天</span>
+            <span class="sector-count">涨停12家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：28.05</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">航天</span>
-                    <span class="sector-count">涨停12家</span>
-                </div>
                 <span class="tag">卫星互联网</span><span class="tag">低空经济</span><span class="tag">PCB</span><span class="tag">央企</span>
             </div>
 
@@ -364,15 +412,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">航天机电</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">航天机电</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">航天</span>
+            <span class="sector-count">涨停12家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：9.3</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">航天</span>
-                    <span class="sector-count">涨停12家</span>
-                </div>
                 <span class="tag">航天</span><span class="tag">光伏组件</span><span class="tag">汽车热系统</span><span class="tag">央企</span>
             </div>
 
@@ -396,15 +449,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">银河电子</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">银河电子</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">航天</span>
+            <span class="sector-count">涨停12家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：5.14</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">航天</span>
-                    <span class="sector-count">涨停12家</span>
-                </div>
                 <span class="tag">商业航天</span><span class="tag">军工</span><span class="tag">智能终端</span><span class="tag">新能源</span>
             </div>
 
@@ -428,15 +486,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">宇环数控</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">宇环数控</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">航天</span>
+            <span class="sector-count">涨停12家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：24.46</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">航天</span>
-                    <span class="sector-count">涨停12家</span>
-                </div>
                 <span class="tag">航空航天</span><span class="tag">机器人</span><span class="tag">工业母机</span><span class="tag">军工</span>
             </div>
 
@@ -460,15 +523,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">七一二</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">七一二</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">航天</span>
+            <span class="sector-count">涨停12家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：21.84</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">航天</span>
-                    <span class="sector-count">涨停12家</span>
-                </div>
                 <span class="tag">商业航天</span><span class="tag">军工电子</span><span class="tag">天津国资</span>
             </div>
 
@@ -492,15 +560,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">航天环宇</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">航天环宇</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">航天</span>
+            <span class="sector-count">涨停12家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：38.04</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">航天</span>
-                    <span class="sector-count">涨停12家</span>
-                </div>
                 <span class="tag">商业航天</span><span class="tag">大飞机配套</span><span class="tag">中标公告</span><span class="tag">宇航产品</span>
             </div>
 
@@ -524,15 +597,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">海欣食品</span><span class="board-badge">3连板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">海欣食品</span>
+                    <span class="board-badge">3连板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">海峡两岸</span>
+            <span class="sector-count">涨停8家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：7.24</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">海峡两岸</span>
-                    <span class="sector-count">涨停8家</span>
-                </div>
                 <span class="tag">海峡两岸山姆渠道</span><span class="tag">常温新品</span><span class="tag">火锅丸滑</span>
             </div>
 
@@ -556,15 +634,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">厦工股份</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">厦工股份</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">海峡两岸</span>
+            <span class="sector-count">涨停8家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：3.85</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">海峡两岸</span>
-                    <span class="sector-count">涨停8家</span>
-                </div>
                 <span class="tag">雅江水电</span><span class="tag">工程机械</span><span class="tag">厦门国资</span><span class="tag">智能化装备</span>
             </div>
 
@@ -588,15 +671,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">南威软件</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">南威软件</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">海峡两岸</span>
+            <span class="sector-count">涨停8家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：14.43</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">海峡两岸</span>
-                    <span class="sector-count">涨停8家</span>
-                </div>
                 <span class="tag">Al政务</span><span class="tag">亏损收窄蚂蚁金服概念</span><span class="tag">海峡两岸</span>
             </div>
 
@@ -620,15 +708,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">福建水泥</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">福建水泥</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">海峡两岸</span>
+            <span class="sector-count">涨停8家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：7.49</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">海峡两岸</span>
-                    <span class="sector-count">涨停8家</span>
-                </div>
                 <span class="tag">海峡两岸</span><span class="tag">福建国资</span><span class="tag">水泥</span><span class="tag">减亏</span>
             </div>
 
@@ -652,15 +745,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">建发合诚</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">建发合诚</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">海峡两岸</span>
+            <span class="sector-count">涨停8家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：12.91</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">海峡两岸</span>
-                    <span class="sector-count">涨停8家</span>
-                </div>
                 <span class="tag">三季报增长</span><span class="tag">城市更新</span><span class="tag">国企改革</span><span class="tag">海峡两岸</span>
             </div>
 
@@ -684,15 +782,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">龙高股份</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">龙高股份</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">海峡两岸</span>
+            <span class="sector-count">涨停8家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：33.99</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">海峡两岸</span>
-                    <span class="sector-count">涨停8家</span>
-                </div>
                 <span class="tag">高岭土</span><span class="tag">萤石/石英</span><span class="tag">并购预期</span><span class="tag">福建国资</span>
             </div>
 
@@ -716,15 +819,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">漳州发展</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">漳州发展</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">海峡两岸</span>
+            <span class="sector-count">涨停8家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：8.6</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">海峡两岸</span>
-                    <span class="sector-count">涨停8家</span>
-                </div>
                 <span class="tag">海峡两岸</span><span class="tag">收购信产集团剩余30%股权</span><span class="tag">漳州国资</span>
             </div>
 
@@ -748,15 +856,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">平潭发展</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">平潭发展</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">海峡两岸</span>
+            <span class="sector-count">涨停8家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：10.73</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">海峡两岸</span>
-                    <span class="sector-count">涨停8家</span>
-                </div>
                 <span class="tag">海峡两岸</span><span class="tag">平潭开发</span><span class="tag">林业</span><span class="tag">菌草</span>
             </div>
 
@@ -780,15 +893,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">茂业商业</span><span class="board-badge">4连板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">茂业商业</span>
+                    <span class="board-badge">4连板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">大消费</span>
+            <span class="sector-count">涨停7家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：6.15</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">大消费</span>
-                    <span class="sector-count">涨停7家</span>
-                </div>
                 <span class="tag">百货零售</span><span class="tag">川超</span><span class="tag">天府壹号</span>
             </div>
 
@@ -812,15 +930,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">美克家居</span><span class="board-badge">3天2板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">美克家居</span>
+                    <span class="board-badge">3天2板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">大消费</span>
+            <span class="sector-count">涨停7家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：2.74</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">大消费</span>
-                    <span class="sector-count">涨停7家</span>
-                </div>
                 <span class="tag">AI智家</span><span class="tag">家居定制</span><span class="tag">回购</span><span class="tag">新疆振兴</span>
             </div>
 
@@ -844,15 +967,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">读者传媒</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">读者传媒</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">大消费</span>
+            <span class="sector-count">涨停7家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：7.95</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">大消费</span>
-                    <span class="sector-count">涨停7家</span>
-                </div>
                 <span class="tag">AIGC</span><span class="tag">文创产品</span><span class="tag">直播电商</span><span class="tag">甘肃国资</span>
             </div>
 
@@ -876,15 +1004,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">阳光乳业</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">阳光乳业</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">大消费</span>
+            <span class="sector-count">涨停7家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：15.97</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">大消费</span>
-                    <span class="sector-count">涨停7家</span>
-                </div>
                 <span class="tag">低温乳品</span><span class="tag">冷链物流</span>
             </div>
 
@@ -908,15 +1041,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">燕塘乳业</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">燕塘乳业</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">大消费</span>
+            <span class="sector-count">涨停7家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：20.03</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">大消费</span>
-                    <span class="sector-count">涨停7家</span>
-                </div>
                 <span class="tag">全运会</span><span class="tag">乳品</span><span class="tag">湾区</span><span class="tag">国企</span>
             </div>
 
@@ -940,15 +1078,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">中国电影</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">中国电影</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">大消费</span>
+            <span class="sector-count">涨停7家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：17.29</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">大消费</span>
-                    <span class="sector-count">涨停7家</span>
-                </div>
                 <span class="tag">影视院线</span><span class="tag">《疯狂动物城2》</span><span class="tag">IP经济</span><span class="tag">央企</span>
             </div>
 
@@ -972,15 +1115,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">文峰股份</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">文峰股份</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">大消费</span>
+            <span class="sector-count">涨停7家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：2.97</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">大消费</span>
-                    <span class="sector-count">涨停7家</span>
-                </div>
                 <span class="tag">南通零售龙头</span><span class="tag">数字化</span>
             </div>
 
@@ -1004,15 +1152,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">国晟科技</span><span class="board-badge">15天10板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">国晟科技</span>
+                    <span class="board-badge">15天10板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">锂电池</span>
+            <span class="sector-count">涨停6家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：11.59</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">锂电池</span>
-                    <span class="sector-count">涨停6家</span>
-                </div>
                 <span class="tag">固态电池</span><span class="tag">孚悦科技</span><span class="tag">光伏组件</span><span class="tag">异质结</span>
             </div>
 
@@ -1036,15 +1189,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">道明光学</span><span class="board-badge">2连板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">道明光学</span>
+                    <span class="board-badge">2连板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">锂电池</span>
+            <span class="sector-count">涨停6家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：12.44</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">锂电池</span>
-                    <span class="sector-count">涨停6家</span>
-                </div>
                 <span class="tag">固态电池</span><span class="tag">铝塑膜反光材料</span><span class="tag">三季报增长</span>
             </div>
 
@@ -1068,15 +1226,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">大中矿业</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">大中矿业</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">锂电池</span>
+            <span class="sector-count">涨停6家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：31.47</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">锂电池</span>
-                    <span class="sector-count">涨停6家</span>
-                </div>
                 <span class="tag">锂矿采矿证</span><span class="tag">固态电池</span><span class="tag">铁矿</span><span class="tag">回购</span>
             </div>
 
@@ -1100,15 +1263,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">丰元股份</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">丰元股份</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">锂电池</span>
+            <span class="sector-count">涨停6家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：20.34</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">锂电池</span>
-                    <span class="sector-count">涨停6家</span>
-                </div>
                 <span class="tag">固态电池</span><span class="tag">磷酸铁锂</span><span class="tag">草酸</span><span class="tag">产能利用率提升</span>
             </div>
 
@@ -1132,15 +1300,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">广汽集团</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">广汽集团</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">锂电池</span>
+            <span class="sector-count">涨停6家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：9.25</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">锂电池</span>
-                    <span class="sector-count">涨停6家</span>
-                </div>
                 <span class="tag">固态电池</span><span class="tag">人形机器人</span><span class="tag">整车龙头</span><span class="tag">广州国资</span>
             </div>
 
@@ -1164,15 +1337,20 @@
         
         <div class="stock-card">
             <div class="header">
-                <div class="header-left"><span class="stock-name">滨海能源</span><span class="board-badge">首板</span></div>
+                <div class="header-left">
+                    <span class="stock-name">滨海能源</span>
+                    <span class="board-badge">首板</span>
+                    
+        <div class="sector-bar">
+            <span class="sector-name">锂电池</span>
+            <span class="sector-count">涨停6家</span>
+        </div>
+        
+                </div>
                 <span class="price">现价：19.25</span>
             </div>
 
             <div class="info-row">
-                <div class="sector-bar">
-                    <span class="sector-name">锂电池</span>
-                    <span class="sector-count">涨停6家</span>
-                </div>
                 <span class="tag">固态电池</span><span class="tag">负极材料</span><span class="tag">绿电降本</span><span class="tag">旭阳控股</span>
             </div>
 
