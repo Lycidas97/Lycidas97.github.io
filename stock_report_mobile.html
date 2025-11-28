@@ -49,13 +49,38 @@
                 margin-bottom: 12px; 
             }
             
-            .header-left { display: flex; align-items: center; }
+            .header-left { 
+                display: flex; 
+                align-items: center; 
+                flex-wrap: wrap; /* 允许换行 */
+                gap: 5px; /* 元素间距 */
+            }
             .stock-name { font-size: 20px; font-weight: 900; color: #000; margin-right: 8px; }
             .board-badge { 
                 background: #ff3b30; color: #fff; font-size: 11px; 
                 padding: 2px 6px; border-radius: 4px; font-weight: bold; 
                 transform: translateY(1px);
             }
+
+            /* --- 新增：简洁的文字版时间样式 --- */
+            .limit-time {
+                font-size: 12px;
+                color: #8e8e93; /* 次级灰色，不抢眼 */
+                font-weight: 500;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                margin-left: 2px; /* 微调与前面元素的距离 */
+                display: flex;
+                align-items: center;
+            }
+            
+            /* 让具体的时间数字颜色稍微深一点，便于阅读 */
+            .limit-time b {
+                color: #333;
+                font-weight: 600;
+                margin-left: 2px;
+                font-family: "DIN Alternate", Arial, sans-serif; /* 数字字体 */
+            }
+
             .price { font-size: 16px; font-weight: bold; color: #ff3b30; font-family: "DIN Alternate", Arial, sans-serif; }
 
             .info-row { 
@@ -73,7 +98,7 @@
                 border: 1px solid #ffe0b2; 
                 border-radius: 4px; 
                 padding: 2px 6px; 
-                margin-left: 8px;
+                /* margin-left: 8px;  <-- 删除这个，改用 gap */
             }
             
             .sector-name { 
@@ -241,6 +266,7 @@
             <span class="sector-count">涨停12家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>14:08:33</b></span>
                 </div>
                 <span class="price">现价：13.51</span>
             </div>
@@ -278,6 +304,7 @@
             <span class="sector-count">涨停12家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>09:44:42</b></span>
                 </div>
                 <span class="price">现价：7.66</span>
             </div>
@@ -315,6 +342,7 @@
             <span class="sector-count">涨停12家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>09:25:00</b></span>
                 </div>
                 <span class="price">现价：23.78</span>
             </div>
@@ -352,6 +380,7 @@
             <span class="sector-count">涨停12家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>09:25:00</b></span>
                 </div>
                 <span class="price">现价：11.1</span>
             </div>
@@ -389,6 +418,7 @@
             <span class="sector-count">涨停12家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>09:25:00</b></span>
                 </div>
                 <span class="price">现价：8.03</span>
             </div>
@@ -426,6 +456,7 @@
             <span class="sector-count">涨停12家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>09:42:21</b></span>
                 </div>
                 <span class="price">现价：19.07</span>
             </div>
@@ -463,6 +494,7 @@
             <span class="sector-count">涨停12家</span>
         </div>
         
+                    
                 </div>
                 <span class="price">现价：28.05</span>
             </div>
@@ -500,6 +532,7 @@
             <span class="sector-count">涨停12家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>10:01:44</b></span>
                 </div>
                 <span class="price">现价：9.3</span>
             </div>
@@ -537,6 +570,7 @@
             <span class="sector-count">涨停12家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>10:25:57</b></span>
                 </div>
                 <span class="price">现价：5.14</span>
             </div>
@@ -574,6 +608,7 @@
             <span class="sector-count">涨停12家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>11:18:54</b></span>
                 </div>
                 <span class="price">现价：24.46</span>
             </div>
@@ -611,6 +646,7 @@
             <span class="sector-count">涨停12家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>14:45:57</b></span>
                 </div>
                 <span class="price">现价：21.84</span>
             </div>
@@ -648,6 +684,7 @@
             <span class="sector-count">涨停12家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>14:54:50</b></span>
                 </div>
                 <span class="price">现价：38.04</span>
             </div>
@@ -685,6 +722,7 @@
             <span class="sector-count">涨停8家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>10:49:09</b></span>
                 </div>
                 <span class="price">现价：7.24</span>
             </div>
@@ -722,6 +760,7 @@
             <span class="sector-count">涨停8家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>09:32:12</b></span>
                 </div>
                 <span class="price">现价：3.85</span>
             </div>
@@ -759,6 +798,7 @@
             <span class="sector-count">涨停8家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>09:48:16</b></span>
                 </div>
                 <span class="price">现价：14.43</span>
             </div>
@@ -796,6 +836,7 @@
             <span class="sector-count">涨停8家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>10:06:48</b></span>
                 </div>
                 <span class="price">现价：7.49</span>
             </div>
@@ -833,6 +874,7 @@
             <span class="sector-count">涨停8家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>10:33:17</b></span>
                 </div>
                 <span class="price">现价：12.91</span>
             </div>
@@ -870,6 +912,7 @@
             <span class="sector-count">涨停8家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>13:13:05</b></span>
                 </div>
                 <span class="price">现价：33.99</span>
             </div>
@@ -907,6 +950,7 @@
             <span class="sector-count">涨停8家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>13:47:48</b></span>
                 </div>
                 <span class="price">现价：8.6</span>
             </div>
@@ -944,6 +988,7 @@
             <span class="sector-count">涨停8家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>14:52:15</b></span>
                 </div>
                 <span class="price">现价：10.73</span>
             </div>
@@ -981,6 +1026,7 @@
             <span class="sector-count">涨停7家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>09:32:19</b></span>
                 </div>
                 <span class="price">现价：6.15</span>
             </div>
@@ -1018,6 +1064,7 @@
             <span class="sector-count">涨停7家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>13:11:46</b></span>
                 </div>
                 <span class="price">现价：2.74</span>
             </div>
@@ -1055,6 +1102,7 @@
             <span class="sector-count">涨停7家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>09:37:46</b></span>
                 </div>
                 <span class="price">现价：7.95</span>
             </div>
@@ -1092,6 +1140,7 @@
             <span class="sector-count">涨停7家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>10:48:36</b></span>
                 </div>
                 <span class="price">现价：15.97</span>
             </div>
@@ -1129,6 +1178,7 @@
             <span class="sector-count">涨停7家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>11:05:03</b></span>
                 </div>
                 <span class="price">现价：20.03</span>
             </div>
@@ -1166,6 +1216,7 @@
             <span class="sector-count">涨停7家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>13:05:06</b></span>
                 </div>
                 <span class="price">现价：17.29</span>
             </div>
@@ -1203,6 +1254,7 @@
             <span class="sector-count">涨停7家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>13:16:35</b></span>
                 </div>
                 <span class="price">现价：2.97</span>
             </div>
@@ -1240,6 +1292,7 @@
             <span class="sector-count">涨停6家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>10:57:13</b></span>
                 </div>
                 <span class="price">现价：11.59</span>
             </div>
@@ -1277,6 +1330,7 @@
             <span class="sector-count">涨停6家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>09:25:00</b></span>
                 </div>
                 <span class="price">现价：12.44</span>
             </div>
@@ -1314,6 +1368,7 @@
             <span class="sector-count">涨停6家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>10:38:33</b></span>
                 </div>
                 <span class="price">现价：31.47</span>
             </div>
@@ -1351,6 +1406,7 @@
             <span class="sector-count">涨停6家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>13:03:18</b></span>
                 </div>
                 <span class="price">现价：20.34</span>
             </div>
@@ -1388,6 +1444,7 @@
             <span class="sector-count">涨停6家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>13:35:57</b></span>
                 </div>
                 <span class="price">现价：9.25</span>
             </div>
@@ -1425,6 +1482,7 @@
             <span class="sector-count">涨停6家</span>
         </div>
         
+                    <span class="limit-time">最终涨停：<b>14:37:00</b></span>
                 </div>
                 <span class="price">现价：19.25</span>
             </div>
