@@ -143,7 +143,58 @@
             margin-top: 5px;
             letter-spacing: 1px;
         }
+/* --- 新增：顶部热点统计卡片 --- */
+        .summary-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px; /* 与下方个股卡片拉开距离 */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
 
+        .summary-title {
+            font-size: 16px;
+            font-weight: 900;
+            color: #1c1c1e;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid #ff3b30; /* 左侧红条装饰 */
+            padding-left: 10px;
+        }
+
+        .summary-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* 标签之间的间距 */
+        }
+
+        .sum-tag {
+            display: inline-flex;
+            align-items: center;
+            background: #f2f2f7; /* 浅灰背景 */
+            border-radius: 6px;
+            padding: 6px 10px;
+            font-size: 13px;
+            border: 1px solid #e5e5ea;
+        }
+
+        .sum-name {
+            color: #333;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        .sum-count {
+            background: #ff3b30;
+            color: #fff;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 1px 6px;
+            border-radius: 4px;
+            min-width: 20px;
+            text-align: center;
+        }
     </style>
     
     </head>
@@ -151,6 +202,33 @@
         <div class="container">
             <div class="main-title">今日涨停复盘</div>
     
+            <div class="summary-card">
+                <div class="summary-title">🔥 今日风口分布</div>
+                <div class="summary-grid">
+        
+                <div class="sum-tag">
+                    <span class="sum-name">航天</span>
+                    <span class="sum-count">12</span>
+                </div>
+            
+                <div class="sum-tag">
+                    <span class="sum-name">海峡两岸</span>
+                    <span class="sum-count">8</span>
+                </div>
+            
+                <div class="sum-tag">
+                    <span class="sum-name">大消费</span>
+                    <span class="sum-count">7</span>
+                </div>
+            
+                <div class="sum-tag">
+                    <span class="sum-name">锂电池</span>
+                    <span class="sum-count">6</span>
+                </div>
+            
+                </div>
+            </div>
+        
         <div class="stock-card">
             <div class="header">
                 <div class="header-left">
