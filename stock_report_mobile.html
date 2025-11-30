@@ -233,6 +233,59 @@
                 min-width: 20px;
                 text-align: center;
             }
+
+            /* --- 新增：高标总结 Grid 样式 --- */
+            .high-tier-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); /* 3列布局 */
+                gap: 10px;
+            }
+            
+            .high-item {
+                background: #fff9fa;
+                border: 1px solid #ffeff0;
+                border-radius: 8px;
+                padding: 10px 5px; /* 减少左右内边距，防止文字撑开 */
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            .high-top {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 4px;
+            }
+            
+            .high-name {
+                font-size: 15px;
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 4px;
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis; /* 名称过长省略 */
+            }
+            
+            .high-days {
+                font-size: 12px;
+                color: #d32f2f;
+                font-weight: 800;
+                background: rgba(211, 47, 47, 0.08);
+                padding: 2px 6px;
+                border-radius: 4px;
+                display: inline-block;
+            }
+            
+            .high-code {
+                font-size: 11px;
+                color: #999;
+                font-family: "DIN Alternate", "Helvetica Neue", sans-serif;
+                margin-top: 2px;
+            }
         </style>
         
         </head>
@@ -312,6 +365,85 @@
                     <div class="sum-tag">
                         <span class="sum-name">钛白粉</span>
                         <span class="sum-count">2</span>
+                    </div>
+                
+                    </div>
+                </div>
+            
+                <div class="summary-card">
+                    <div class="summary-title">🏆 市场高标 (3板及以上)</div>
+                    <div class="high-tier-grid">
+            
+                    <div class="high-item">
+                        <div class="high-top">
+                            <span class="high-name">国晟科技</span>
+                            <span class="high-days">15天10板</span>
+                        </div>
+                        <div class="high-code">603778</div>
+                    </div>
+                
+                    <div class="high-item">
+                        <div class="high-top">
+                            <span class="high-name">航天发展</span>
+                            <span class="high-days">11天7板</span>
+                        </div>
+                        <div class="high-code">000547</div>
+                    </div>
+                
+                    <div class="high-item">
+                        <div class="high-top">
+                            <span class="high-name">梦天家居</span>
+                            <span class="high-days">8天6板</span>
+                        </div>
+                        <div class="high-code">603216</div>
+                    </div>
+                
+                    <div class="high-item">
+                        <div class="high-top">
+                            <span class="high-name">金富科技</span>
+                            <span class="high-days">5连板</span>
+                        </div>
+                        <div class="high-code">003018</div>
+                    </div>
+                
+                    <div class="high-item">
+                        <div class="high-top">
+                            <span class="high-name">雷科防务</span>
+                            <span class="high-days">5天4板</span>
+                        </div>
+                        <div class="high-code">002413</div>
+                    </div>
+                
+                    <div class="high-item">
+                        <div class="high-top">
+                            <span class="high-name">茂业商业</span>
+                            <span class="high-days">4连板</span>
+                        </div>
+                        <div class="high-code">600828</div>
+                    </div>
+                
+                    <div class="high-item">
+                        <div class="high-top">
+                            <span class="high-name">海欣食品</span>
+                            <span class="high-days">3连板</span>
+                        </div>
+                        <div class="high-code">002702</div>
+                    </div>
+                
+                    <div class="high-item">
+                        <div class="high-top">
+                            <span class="high-name">海王生物</span>
+                            <span class="high-days">3连板</span>
+                        </div>
+                        <div class="high-code">000078</div>
+                    </div>
+                
+                    <div class="high-item">
+                        <div class="high-top">
+                            <span class="high-name">海南瑞泽</span>
+                            <span class="high-days">4天3板</span>
+                        </div>
+                        <div class="high-code">002596</div>
                     </div>
                 
                     </div>
